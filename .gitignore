@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.env.*
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+data/train_clean.txt
+data/val_clean.txt
+data/test_clean.txt
+.DS_Store
+Thumbs.db

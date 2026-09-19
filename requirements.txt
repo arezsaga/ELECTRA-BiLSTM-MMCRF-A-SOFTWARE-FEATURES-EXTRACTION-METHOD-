@@ -1,0 +1,9 @@
+# Direct dependencies; versions must be recorded from a successful training environment.
+torch
+transformers
+numpy
+scikit-learn
+matplotlib
+seaborn
+tqdm
+jupyterlab
