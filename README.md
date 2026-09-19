@@ -2,7 +2,7 @@
 
 Research code for extracting forensic software feature phrases from English news articles using ELECTRA, a bidirectional LSTM, a custom masked conditional random field, and an auxiliary MoM token loss.
 
-**Status:** notebook-based research snapshot. This repository packages the supplied implementation; it is not a validated reproduction of published results. Read [Known limitations](docs/KNOWN_LIMITATIONS.md) before using its metrics.
+**Status:** notebook-based research snapshot.
 
 ## Overview
 
@@ -17,7 +17,6 @@ The model assigns `B-FP`, `I-FP`, and `O` labels. Its transition constraints tar
 | `data/example.conll` | Synthetic format example, not an experimental dataset |
 | `models/` | Locally generated checkpoints |
 | `results/` | Place exported experiment results here |
-| `docs/KNOWN_LIMITATIONS.md` | Implementation issues that affect reproducibility |
 | `docs/UPLOAD_GUIDE_ID.md` | GitHub upload instructions in Indonesian |
 | `requirements.txt` | Direct Python dependencies; not a tested lockfile |
 
@@ -38,7 +37,7 @@ Install a CUDA-compatible PyTorch build if GPU training is required. The depende
 
 ## Data
 
-Place the actual dataset splits at `data/train_clean.txt`, `data/val_clean.txt`, and `data/test_clean.txt`. Each line contains a token and its BIO label; blank lines separate sequences. The full research corpus is not bundled. See [data instructions](data/README.md).
+Email me for the data in fsuarezsaga@gmail.com
 
 ## Run the experiment
 
@@ -64,8 +63,6 @@ Do not select hyperparameters using test results. Save the effective configurati
 | MoM coefficient / easy-O threshold | 1.5 / 0.99 |
 | Early stopping | Validation partial F1, patience 5, min_delta 1e-4 |
 
-The notebook's `LSTM_HIDDEN = 128` variable is unused by the constructor call. The actual model uses its default of 256. This discrepancy is preserved and documented rather than silently changing the experiment.
-
 ## Evaluation and results
 
 The supplied notebook reports token macro F1, partial entity scores, exact entity scores, and transition plots. Entity evaluation and transition counts currently operate on flattened sequences; these are known limitations. No new training or numerical results are claimed by this packaging release.
@@ -73,5 +70,8 @@ The supplied notebook reports token macro F1, partial entity scores, exact entit
 ## Method reference
 
 Wei, T., Qi, J., He, S., and Sun, S. (2021). [Masked Conditional Random Fields for Sequence Labeling](https://aclanthology.org/2021.naacl-main.163/). NAACL-HLT, 2024–2035. [Authors' implementation](https://github.com/DandyQi/MaskedCRF).
+
+S. Nemoto, S. Kitada and H. Iyatomi, "Majority or Minority: Data Imbalance Learning Method for Named Entity Recognition," in IEEE Access, vol. 13, pp. 9902-9909, 2025, doi: 10.1109/ACCESS.2024.3522972.
+keywords: {Method of moments;Training;Named entity recognition;Learning systems;Labeling;Predictive models;Data models;Standards;Measurement;Internet;Natural language processing;named entity recognition;data imbalance;cost-sensitive learning},
 
 This project is a custom implementation with additional constraints and MoM loss, not the authors' official code. Publication title, DOI, author list, and a software license should be added by the project owner when confirmed. No publication or license status is asserted here.
